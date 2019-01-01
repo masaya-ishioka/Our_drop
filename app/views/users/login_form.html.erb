@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+  	<h2 class="center margin_top">ログイン</h2>
+	<div class="col-md-4"></div>
+
+	<div class="col-md-4">
+		<div class="row">
+			<%= form_for(:login, url: users_login_path ) do |f| %>
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<div class="form-group">
+					<label>メールアドレス</label>
+					<%= f.text_field :email, class: "form-control"  %>
+				</div>
+
+				<div class="form-group">
+					<label>パスワード</label>
+					<%= f.password_field :password, class: "form-control"  %>
+				</div>
+
+			</div>
+			<div class="col-md-1"></div>
+
+			<div class="form-group row">
+				<div class="col-md-4"></div>
+				<%= f.submit "ログイン", class: "btn btn-info col-md-4 margin_top" %>
+				<div class="col-md-4"></div>
+			</div>
+
+			<%end%>
+		</div>
+	</div>
+
+	<div class="col-md-4"></div>
+
+  </div>
+</div>
