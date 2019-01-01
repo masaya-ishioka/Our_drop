@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LikeSoundControllerTest < ActionDispatch::IntegrationTest
+class LikeSoundsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
