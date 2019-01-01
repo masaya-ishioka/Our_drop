@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_30_074432) do
+ActiveRecord::Schema.define(version: 2018_12_31_072552) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "sound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like_sounds", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "sound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like_users", force: :cascade do |t|
+    t.integer "my_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sounds", force: :cascade do |t|
     t.string "url"
@@ -18,14 +40,20 @@ ActiveRecord::Schema.define(version: 2018_12_30_074432) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tag1"
+    t.string "tag2"
+    t.string "tag3"
+    t.text "sound_text"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
+    t.boolean "admin"
+    t.string "password_digest"
   end
 
 end

@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
-  resources :sounds, only:[:show, :edit, :update, :new,:create, :destroy]
-
-  root "sounds#index"
+  root "users#top"
+  get "users/login_form"
+  post "users/login"
+  post "users/logout"
+  resources :users do
+  	resources :like_sounds, only:[:create, :destroy]
+  	resources :like_users, only:[:create, :destroy]
+  end
+  resources :sounds do
+  	resources :comments, only:[:edit, :update, :create, :destroy]
+  end
 end

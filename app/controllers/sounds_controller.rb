@@ -7,6 +7,8 @@ class SoundsController < ApplicationController
 
 	def create
 		@sound = Sound.new(sound_params)
+		url = @sound.url.sub(/www.dropbox/,'dl.dropboxusercontent')
+		@sound.url = url
 		@sound.save
 		redirect_to root_path
 	end
@@ -20,7 +22,7 @@ class SoundsController < ApplicationController
 
 	def show
 		@sound = Sound.find_by(id: params[:id])
-		binding.pry
+		response.headers['X-Frame-Options'] = 'ALLOWALL #{@sound.url}'
 	end
 
 	def update
@@ -38,6 +40,6 @@ class SoundsController < ApplicationController
 	end
 
 	def success
-		response.headers['X-Frame-Options'] = 'ALLOWALL #{Sound.url}'
+		response.headers['X-Frame-Options'] = 'ALLOWALL'
 	end
 end
