@@ -10,6 +10,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+        <%= link_to root_path do %>
+        <img src="/drop-logo.png" style="height: 60px; width: 80px; margin: 5px 30px ;">
+        <% end %>
+      <%if @current_user %>
+      <ul class="header">
+        <li><%= link_to "ログアウト", users_logout_path, method: :delete %></li>
+        <li><%= link_to "マイページ", user_path(@current_user.id) %></li>
+        <li><%= link_to "曲一覧", sounds_path %></li>
+        <li><%= link_to "曲投稿", new_sound_path %></li>
+      </ul>
+      <% else %>
+      <ul class="header">
+        <li><%= link_to "新規登録", new_user_path %></li>
+        <li><%= link_to "ログイン", users_login_form_path %></li>
+        <li><%= link_to "曲一覧", sounds_path %></li>
+      </ul>
+      <% end %>
+    </header>
+      <%= yield %>
+    <footer>
+      <small>COPYRIGHT &#169; Our drop ALL RIGHTS RESERVED.</small>
+    </footer>
   </body>
 </html>
