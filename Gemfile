@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem "pry-rails"
 gem 'bcrypt'
+gem "bootstrap-sass"
+gem "refile", require: "refile/rails", github: "manfe/refile"
+gem "refile-mini_magick"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

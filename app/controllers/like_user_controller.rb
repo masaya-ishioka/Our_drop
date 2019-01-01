@@ -1,4 +1,4 @@
-class LikeUserController < ApplicationController
+class LikeUsersController < ApplicationController
 	def create
 	end
 

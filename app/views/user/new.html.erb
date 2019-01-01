@@ -1,0 +1,22 @@
+<div class="row">
+	<h2 class="col-md-12 col-sm-12 col-xs-12">新規登録</h2>
+	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+	<div class="col-md-10 col-sm-10 col-xs-10">
+		<% form_for(@user) do |f| %>
+
+		<label>ニックネームまたはバンド名</label>
+		<%= f.text_field :name %>
+
+		<label>メールアドレス</label>
+		<%= f.text_field :email %>
+
+		<label>パスワード</label>
+		<%= f.password_field :password %>
+
+		<label>パスワード（確認）</label>
+		<%= f.password_field :password_confirmation %>
+
+		<%= f.submit "新規登録" %>
+	</div>
+	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+</div>
