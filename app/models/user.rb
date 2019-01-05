@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	validates :name, presence: true
     validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    
 
     has_many :sounds, dependent: :destroy
     has_many :like_sounds, dependent: :destroy

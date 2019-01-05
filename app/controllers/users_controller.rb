@@ -8,18 +8,23 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.save
-		redirect_to root_path
+		if @user.save
+			session[:user_id] = @user.id
+			redirect_to root_path
+		else
+			render :new
+			flash[:danger] = "※は必須項目です。"
+		end
 	end
 
 	def login_form
 	end
 
 	def login
-		@user = User.find_by(email: params[:email])
-		if @user && @user.ateauthenticate(params[:password])
+		@user = User.find_by(email: params[:login][:email])
+		if @user && @user.authenticate(params[:login][:password])
 			session[:user_id] = @user.id
-			redirect_to root_path
+			redirect_to sounds_path
 			flash[:success] = "ログインしました。"
 		else
 			render :login_form
@@ -29,7 +34,7 @@ class UsersController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-		redirect_to :login_form
+		redirect_to users_login_path
 		flash[:info] = "ログアウトしました。"
 	end
 
@@ -59,7 +64,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :email, :password_digest, :image_id)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_id)
 	end
 
 end
