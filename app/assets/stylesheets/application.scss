@@ -33,6 +33,7 @@ a:hover{
 
 html {
     height: 100%;
+    width: 100%;
     background-color: #000;
 }
 
@@ -122,7 +123,25 @@ small{
 
 .show-back{
 	background-color: #000;
-	height: 180px;
+	border-radius: 5px;
+	height: 100%;
+}
+.show_image{
+	height: 500px;
 	width: 500px;
+}
+.show_link{
+	color: #FFF;
+	font-size: 18px;
+}
+.footer_top{
+	width: 100%;
+	height: 60px;
+	background-color: #ffdd00;
+}
+.row{
+	padding:0;
+	margin:0;
+	background-color: #ffdd00;
 }
 
