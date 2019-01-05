@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-		redirect_to users_login_path
+		redirect_to root_path
 		flash[:info] = "ログアウトしました。"
 	end
 
