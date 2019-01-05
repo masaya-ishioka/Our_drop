@@ -46,6 +46,10 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 	end
 
+	def password_edit
+		@user = User.find_by(id: params[:id])
+	end
+
 	def show
 		@user = User.find_by(id: params[:id])
 	end
@@ -53,7 +57,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find_by(id: params[:id])
 		@user.update(user_params)
-		redirect_to :show
+		redirect_to user_path(@current_user.id)
 	end
 
 	def destroy
@@ -64,7 +68,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_id)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_id, :facebook, :twitter, :instagram, :youtube, :user_text)
 	end
 
 end
