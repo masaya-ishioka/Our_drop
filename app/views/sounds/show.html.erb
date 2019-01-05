@@ -1,3 +1,10 @@
-<h1>詳細ページ</h1>
-<iframe width="460" height="150" src="<%= @sound.url %>"></iframe>
-<%link_to "戻る", :back %>
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="center">詳細ページ</h1>
+	</div>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<iframe width="460" height="150" src="<%= @sound.url %>"></iframe>
+	</div>
+	<div class="col-md-4"><%=link_to "戻る", :back %></div>
+</div>

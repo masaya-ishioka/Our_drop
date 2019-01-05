@@ -2,7 +2,7 @@ class Sound < ApplicationRecord
 	validates :url, presence: true
 	validates :title, presence: true
 	validates :user_id, presence: true
-	validates :tag_1, presence: true
+	validates :tag1, presence: true
 	validates :sound_text, length: {maximum: 140}
 
 	belongs_to :user

@@ -1,7 +1,14 @@
-<h1>投稿一覧</h1>
-<%= link_to "新規投稿", new_sound_path %>
-<% @sounds.each do |sound| %>
-	<label>タイトル</label>
-	<%= sound.title %>
-	<%= link_to "詳細ページ", sound_path(sound.id)%>
-<%end%>
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="center">投稿一覧</h1>
+	</div>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<% @sounds.each do |sound| %>
+			<label>曲名</label>
+			<%= sound.title %>
+			<%= link_to "詳細ページ", sound_path(sound.id)%>
+		<%end%>
+	</div>
+	<div class="col-md-4"></div>
+</div>

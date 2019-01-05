@@ -1,5 +1,4 @@
 class SoundsController < ApplicationController
-	before_action :success
 
 	def new
 		@sound = Sound.new
@@ -9,8 +8,10 @@ class SoundsController < ApplicationController
 		@sound = Sound.new(sound_params)
 		url = @sound.url.sub(/www.dropbox/,'dl.dropboxusercontent')
 		@sound.url = url
+		@sound.user_id = @current_user.id
 		@sound.save
-		redirect_to root_path
+		redirect_to sounds_path
+		flash[:success] = "投稿しました。"
 	end
 
 	def index
@@ -36,10 +37,6 @@ class SoundsController < ApplicationController
 
 	private
 	def sound_params
-		params.require(:sound).permit(:url, :title, :user_id)
-	end
-
-	def success
-		response.headers['X-Frame-Options'] = 'ALLOWALL'
+		params.require(:sound).permit(:url, :title, :user_id, :tag1, :tag2, :tag3, :sound_text)
 	end
 end
