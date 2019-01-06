@@ -19,6 +19,7 @@ class SoundsController < ApplicationController
 	end
 
 	def edit
+		@sound = Sound.find_by(id: params[:id])
 	end
 
 	def show
@@ -27,6 +28,17 @@ class SoundsController < ApplicationController
 	end
 
 	def update
+		@sound = Sound.find_by(id: params[:id])
+		if @sound.update(sound_params)
+			url = @sound.url.sub(/www.dropbox/,'dl.dropboxusercontent')
+			@sound.url = url
+			@sound.save
+			redirect_to sound_path(params[:id])
+			flash[:success] = "編集完了しました。"
+		else
+			render :edit
+			flash[:danger] = "編集に失敗しました。内容を確認してください。"
+		end
 	end
 
 	def destroy

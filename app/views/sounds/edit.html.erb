@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="center">曲編集</h1>
+	</div>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<%= form_for(@sound, url: sound_path(@sound.id)) do |f| %>
+			<div class="form-group">
+				<label>タイトル</label><br>
+				<%= f.text_field :title, class: "form-control"  %>
+			</div>
+
+			<div class="form-group">
+				<label>drop-box共有用URL</label><br>
+				<%= f.text_field :url, class: "form-control"  %>
+			</div>
+
+			<div class="form-group">
+				<label>メインタグ</label>
+				<%= f.select :tag1, ["男ボーカル", "女ボーカル", "混合ボーカル", "歌なし", "ボーカロイド"], :prompt => "選択してください" %>
+			</div>
+
+			<div class="form-group">
+				<label>雰囲気</label>
+				<%= f.select :tag2, ["明るい", "楽しい", "クール", "セクシィ", "優しい", "暗い", "怒り"], :prompt => "選択してください" %>
+			</div>
+
+			<div class="form-group">
+				<label>ポイント</label>
+				<%= f.select :tag3, ["ギターかっけぇ", "ベースかっけぇ", "ドラムかっけぇ", "キーボードかっけぇ", "管楽器かっけぇ", "イントロかっけぇ", "弾き語り"], :prompt => "選択してください" %>
+			</div>
+
+			<div class="form-group">
+				<label>曲紹介</label><br>
+				<%= f.text_area :sound_text, class: "form-control"  %>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-md-4"></div>
+				<%= f.submit "編集完了", class: "btn btn-info col-md-4 margin_top"  %>
+				<div class="col-md-4"></div>
+			</div>
+
+		<%end%>
+	</div>
+	<div class="col-md-4"></div>
+</div>

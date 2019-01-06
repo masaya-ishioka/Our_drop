@@ -77,6 +77,7 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 		@user.update(user_params)
 		redirect_to user_path(@current_user.id)
+		flash[:success] = "プロフィールを変更しました。"
 	end
 
 	def destroy

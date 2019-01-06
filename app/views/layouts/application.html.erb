@@ -34,7 +34,7 @@
     <div class="header_top"></div>
     <div class="contents flash">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type} center") %>
       <% end %>
     </div>
       <%= yield %>
