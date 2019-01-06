@@ -40,7 +40,13 @@
       <%= yield %>
       <div class="footer_top"></div>
     <footer>
-      <small>COPYRIGHT &#169; Our drop ALL RIGHTS RESERVED.</small>
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+       <small>COPYRIGHT &#169; Our drop ALL RIGHTS RESERVED.</small>
+      </div>
+      <div class="col-md-2 ask_form">
+        <%= link_to "お問い合わせはコチラ", "https://docs.google.com/forms/d/e/1FAIpQLSeIioXvAtvzCX09QVzmpeB4LgtspsM1Ki5KYLi3gOZAgt_JsA/viewform?usp=sf_link", class: "ask_form" %>
+      </div>
     </footer>
   </body>
 </html>
