@@ -3,8 +3,17 @@
 		<h1 class="center">詳細ページ</h1>
 	</div>
 	<div class="col-md-4"></div>
+
 	<div class="col-md-4">
 		<iframe width="460" height="150" src="<%= @sound.url %>"></iframe>
 	</div>
-	<div class="col-md-4"><%=link_to "戻る", :back %></div>
+
+	<div class="col-md-4">
+		<% if LikeSound.find_by(user_id: @current_user.id, sound_id: @sound.id) %>
+			<%= link_to "お気に入り解除", sound_like_sound_path(@sound.id), method: :delete, class: "btn btn-default" %>
+		<% else %>
+			<%= link_to "お気に入り登録", sound_like_sounds_path(@sound.id), method: :post, class: "btn btn-info" %>
+		<% end %>
+		<%=link_to "戻る", :back %>
+	</div>
 </div>

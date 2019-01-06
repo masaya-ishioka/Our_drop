@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   post "users/logout"
   get "users/:id/password_edit" => "users#password_edit", as: "users_password_edit"
   resources :users do
-  	resources :like_sounds, only:[:create, :destroy]
   	resources :like_users, only:[:create, :destroy]
   end
   resources :sounds do
   	resources :comments, only:[:edit, :update, :create, :destroy]
+    resources :like_sounds, only:[:create, :destroy]
   end
 end
