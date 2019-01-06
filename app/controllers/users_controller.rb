@@ -42,6 +42,13 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
+	def like_index
+		users = LikeUser.where(my_id: @current_user.id)
+		@users = User.where(id: users.pluck(:user_id))
+		sounds = LikeSound.where(user_id: @current_user.id)
+		@sounds = Sound.where(id: sounds.pluck(:sound_id))
+	end
+
 	def edit
 		@user = User.find_by(id: params[:id])
 	end

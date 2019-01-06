@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "users/login"
   post "users/logout"
   get "users/:id/password_edit" => "users#password_edit", as: "users_password_edit"
+  get "users/:id/likes" => "users#like_index", as: "users_likes_index"
   resources :users do
   	resources :like_users, only:[:create, :destroy]
   end
