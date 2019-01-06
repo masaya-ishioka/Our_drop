@@ -1,0 +1,32 @@
+<div class="footer_top"></div>
+<div class="row">
+	<div class="col-md-6 row">
+		<div class="col-md-1"></div>
+		<div class="like_index_box col-md-10">
+			<% @sounds.each do |sound| %>
+				<div class="like_box">
+				<%= link_to sound_path(sound.id) do %>
+					<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
+					<%= sound.title %>
+				<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+	<div class="col-md-6 row">
+		<div class="col-md-1"></div>
+		<div class="like_index_box col-md-10">
+			<% @users.each do |user| %>
+				<div class="like_box">
+				<%= link_to user_path(user.id) do %>
+					<%= attachment_image_tag user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
+					<%= user.name %>
+				<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
