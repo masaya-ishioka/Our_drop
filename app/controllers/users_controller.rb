@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 			redirect_to sounds_path
 			flash[:success] = "ログインしました。"
 		else
-			render :login_form
+			redirect_to users_password_edit_path(@current_user.id)
 			flash[:danger] = "メールアドレスとパスワードが一致しません。"
 		end
 	end
@@ -57,6 +57,18 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 	end
 
+	def password_update
+		@user = User.find_by(id: params[:id])
+		if @user.update(user_params)
+			session[:user_id] = nil
+			redirect_to root_path
+			flash[:info] = "パスワードを変更しました。"
+		else
+			render :password_edit
+			flash[:danger] = "パスワードが一致しません。"
+		end
+	end
+
 	def show
 		@user = User.find_by(id: params[:id])
 	end
@@ -71,6 +83,7 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 		@user.destroy
 		redirect_to new_user_path
+		flash[:danger] = "ユーザーを削除しました。"
 	end
 
 	private
