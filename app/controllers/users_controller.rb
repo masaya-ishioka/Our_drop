@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 			redirect_to sounds_path
 			flash[:success] = "ログインしました。"
 		else
-			redirect_to users_password_edit_path(@current_user.id)
+			render :login_form
 			flash[:danger] = "メールアドレスとパスワードが一致しません。"
 		end
 	end
