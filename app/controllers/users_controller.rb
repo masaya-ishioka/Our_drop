@@ -57,6 +57,18 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 	end
 
+	def password_update
+		@user = User.find_by(id: params[:id])
+		if @user.update(user_params)
+			session[:user_id] = nil
+			redirect_to root_path
+			flash[:info] = "パスワードを変更しました。"
+		else
+			render :password_edit
+			flash[:danger] = "パスワードが一致しません。"
+		end
+	end
+
 	def show
 		@user = User.find_by(id: params[:id])
 	end
@@ -71,6 +83,7 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 		@user.destroy
 		redirect_to new_user_path
+		flash[:danger] = "ユーザーを削除しました。"
 	end
 
 	private
