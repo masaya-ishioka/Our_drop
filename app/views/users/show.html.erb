@@ -31,7 +31,7 @@
 	<div class="col-md-5 row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10 user_show_box center">
-			<h2>profile</h2>
+			<h2 style="font-family: Impact;">profile</h2>
 			<ul>
 				<li><%= @user.name %></li>
 				<li class="show_text"><%= @user.user_text %></li>
@@ -51,11 +51,11 @@
 		<table class="table">
 			<thead class="show_link">
 				<tr>
-					<td>タイトル</td>
-					<td>メインタグ</td>
-					<td>雰囲気</td>
-					<td>ポイント</td>
-					<td></td>
+					<th>タイトル</th>
+					<th>メインタグ</th>
+					<th>雰囲気</th>
+					<th>ポイント</th>
+					<th></th>
 				</tr>
 			</thead>
 			<% @user.sounds.each do |sound| %>

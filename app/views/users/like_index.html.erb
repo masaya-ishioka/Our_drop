@@ -2,7 +2,7 @@
 	<div class="col-md-6 row">
 		<div class="col-md-1"></div>
 		<div class="like_index_box col-md-10">
-			<h2>Sounds</h2>
+			<h2 style="font-family: Impact;">Sounds</h2>
 			<% @sounds.each do |sound| %>
 				<div class="like_box">
 				<%= link_to sound_path(sound.id) do %>
@@ -18,7 +18,7 @@
 	<div class="col-md-6 row">
 		<div class="col-md-1"></div>
 		<div class="like_index_box col-md-10">
-			<h2>Users</h2>
+			<h2 style="font-family: Impact;">Users</h2>
 			<% @users.each do |user| %>
 				<div class="like_box">
 				<%= link_to user_path(user.id) do %>

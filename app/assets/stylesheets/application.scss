@@ -17,15 +17,12 @@
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
-/* 全体で使うもの */
+/*======全体で使うもの======*/
 
 *{
 	margin:0;
 	padding:0;
-}
-
-a{
-	text-decoration: none;
+	font-family: 'ヒラギノ丸ゴ ProN W4', Hiragino Maru Gothic ProN;
 }
 
 a:hover{
@@ -79,14 +76,21 @@ body{
 .float{
 	float:left;
 }
+
+/*======フォーム======*/
+
 label{
 	width: 200px;
 }
+.form-group{
+	text-align: center;
+}
 select{
 	width: 200px;
+	height: 30px;
 }
 
-/*ヘッダー用*/
+/*======ヘッダー用======*/
 
 header{
 	height: 70px;
@@ -121,7 +125,7 @@ header{
 	color: #7f7f7f;
 }
 
-/*フッター用*/
+/*======フッター用======*/
 
 footer {
     position: fixed;
@@ -141,7 +145,7 @@ small{
 	display: inline-block;
 }
 
-/*トップページ用*/
+/*======トップページ用======*/
 
 .log{
 	margin: 10% 38% 0 40%;
@@ -163,10 +167,7 @@ small{
 	color: #656565;
 }
 
-/*フォーム*/
-.form-group{
-	text-align: center;
-}
+/*======ユーザー詳細、編集用=======*/
 
 .show-back{
 	background-color: #000;
@@ -179,11 +180,11 @@ small{
 }
 .show_link{
 	color: #FFF;
-	font-size: 18px;
+	font-size: 17px;
 }
-
-/*ユーザー詳細、編集用*/
-
+.show_link a{
+	text-decoration: underline;
+}
 .user_edit_box{
 	background: rgba(0,0,0,0.2);
   	border-radius: 5px;
@@ -196,11 +197,11 @@ small{
 .show_text{
 	width: 100%;
 	height: 200px;
-	margin: 10px auto;
+	margin: 10px auto 30px auto;
 	background: rgba(255,255,255,0.2);
 }
 
-/*曲新規投稿用*/
+/*======曲新規投稿用======*/
 
 .sound_text{
 	width: 90%;
@@ -212,9 +213,10 @@ small{
 	font-size: 18px;
 	margin: 20px auto;
 	color: #002698;
+	font-family: Impact;
 }
 
-/*お気に入り用*/
+/*======お気に入り用======*/
 
 .like_index_box{
 	background: rgba(0,0,0,0.2);
@@ -235,7 +237,7 @@ small{
 	color: #7f7f7f;
 }
 
-/*コメント機能用*/
+/*======コメント機能用======*/
 
 .comment_image{
 	height: 100px;
@@ -248,7 +250,7 @@ small{
 	margin: 50px 0;
 }
 
-/*曲一覧*/
+/*======曲一覧======*/
 
 .index_box{
 	height: 270px;
