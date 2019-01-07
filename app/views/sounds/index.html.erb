@@ -1,14 +1,39 @@
+<div class="row footer_top">
+	<div class="col-md-3"></div>
+			<div class="col-md-7">
+
+				<%= form_with url: sounds_path, method: :get, local: true do |f| %>
+					<label class="margin_right">
+						メインタグ
+		  				<%= f.select :search1, ["男ボーカル", "女ボーカル", "混合ボーカル", "歌なし", "ボーカロイド"], :prompt => "選択してください" %>
+	  				</label>
+		  			<label class="margin_right">
+		  				雰囲気
+		  				<%= f.select :search2, ["明るい", "楽しい", "クール", "セクシィ", "優しい", "暗い", "怒り"], :prompt => "選択してください" %>
+	  				</label>
+		  			<label class="margin_right">
+		  				ポイント
+		  				<%= f.select :search3, ["ギターかっけぇ", "ベースかっけぇ", "ドラムかっけぇ", "キーボードかっけぇ", "管楽器かっけぇ", "イントロかっけぇ", "弾き語り"], :prompt => "選択してください" %>
+	  				</label>
+		  			<%= f.submit 'Search', name: nil, class: "btn btn-info" %>
+				<% end %>
+			</div>
+	<div class="col-md-2"></div>
+</div>
 <div class="row">
-	<div class="col-md-12">
-		<h1 class="center">投稿一覧</h1>
-	</div>
-	<div class="col-md-4"></div>
-	<div class="col-md-4">
+	<div class="col-md-1"></div>
+	<div class="col-md-10 like_index_box">
+		<div class="col-md-12">
+		<h2>投稿一覧</h2>
+		</div>
 		<% @sounds.each do |sound| %>
-			<label>曲名</label>
-			<%= sound.title %>
-			<%= link_to "詳細ページ", sound_path(sound.id)%>
+			<div class="index_box">
+			<%= link_to sound_path(sound.id) do %>
+				<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
+				<%= sound.title %>
+			<% end %>
+			</div>
 		<%end%>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-1"></div>
 </div>

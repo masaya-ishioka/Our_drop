@@ -17,6 +17,8 @@
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
+/* 全体で使うもの */
+
 *{
 	margin:0;
 	padding:0;
@@ -46,6 +48,46 @@ body{
 	background-color: #ffdd00;
 }
 
+.center{
+	text-align: center;
+}
+
+.margin_top{
+	margin: 25px 0;
+}
+.margin_right{
+	margin: 0 10px 0 0;
+}
+
+.header_top{
+	width: 100%;
+	height: 20px;
+	background-color: #ffdd00;
+}
+
+.footer_top{
+	width: 100%;
+	height: 60px;
+	background-color: #ffdd00;
+}
+
+.row{
+	padding:0;
+	margin:0;
+	background-color: #ffdd00;
+}
+.float{
+	float:left;
+}
+label{
+	width: 200px;
+}
+select{
+	width: 200px;
+}
+
+/*ヘッダー用*/
+
 header{
 	height: 70px;
 	width: 100%;
@@ -61,8 +103,6 @@ header{
 .header_log:hover{
 	background-color: #7f7f7f;
 }
-
-
 .header ul{
 	height: 70px;
 	float: right;
@@ -81,6 +121,8 @@ header{
 	color: #7f7f7f;
 }
 
+/*フッター用*/
+
 footer {
     position: fixed;
     bottom: 0;
@@ -89,25 +131,17 @@ footer {
     background-color: #000;
     text-align: center;
 }
-
 .ask_form{
 	margin-top: 20px;
 	color: #fff;
 }
-
 small{
 	color: #fff;
 	margin-top: 20px;
 	display: inline-block;
 }
 
-.center{
-	text-align: center;
-}
-
-.margin_top{
-	margin: 25px 0;
-}
+/*トップページ用*/
 
 .log{
 	margin: 10% 38% 0 40%;
@@ -129,6 +163,7 @@ small{
 	color: #656565;
 }
 
+/*フォーム*/
 .form-group{
 	text-align: center;
 }
@@ -147,23 +182,7 @@ small{
 	font-size: 18px;
 }
 
-.header_top{
-	width: 100%;
-	height: 20px;
-	background-color: #ffdd00;
-}
-.footer_top{
-	width: 100%;
-	height: 60px;
-	background-color: #ffdd00;
-}
-
-.row{
-	padding:0;
-	margin:0;
-	background-color: #ffdd00;
-}
-
+/*ユーザー詳細、編集用*/
 
 .user_edit_box{
 	background: rgba(0,0,0,0.2);
@@ -179,8 +198,10 @@ small{
 	height: 200px;
 	margin: 10px auto;
 	background: rgba(255,255,255,0.2);
-
 }
+
+/*曲新規投稿用*/
+
 .sound_text{
 	width: 90%;
 	height: 200px;
@@ -192,11 +213,13 @@ small{
 	margin: 20px auto;
 	color: #002698;
 }
+
+/*お気に入り用*/
+
 .like_index_box{
 	background: rgba(0,0,0,0.2);
   	border-radius: 5px;
 }
-
 .like_image{
 	height: 260px;
 	width: 260px;
@@ -210,8 +233,10 @@ small{
 }
 .like_box a{
 	color: #7f7f7f;
-
 }
+
+/*コメント機能用*/
+
 .comment_image{
 	height: 100px;
 	width: 100px;
@@ -221,5 +246,15 @@ small{
 }
 .comment_btn{
 	margin: 50px 0;
+}
+
+/*曲一覧*/
+
+.index_box{
+	height: 270px;
+	width: 270px;
+	margin: 10px;
+	text-align: center;
+	float: left;
 }
 
