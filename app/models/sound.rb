@@ -11,6 +11,7 @@ class Sound < ApplicationRecord
 
 	def self.search(params)
         results = all.order(created_at: :desc)
+        results = results.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
 	    results = results.where('tag1 LIKE ?', params[:search1]) if params[:search1].present?
  		results = results.where('tag2 LIKE ?', params[:search2]) if params[:search2].present?
 	    results = results.where('tag3 LIKE ?', params[:search3]) if params[:search3].present?

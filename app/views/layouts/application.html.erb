@@ -18,6 +18,7 @@
       <% if @current_user %>
       <ul class="header">
         <li><%= link_to "お気に入り", users_likes_index_path(@current_user.id) %></li>
+        <li><%= link_to "User一覧", users_path %></li>
         <li><%= link_to "曲一覧", sounds_path %></li>
         <li><%= link_to "曲投稿", new_sound_path %></li>
         <li><%= link_to "マイページ", user_path(@current_user.id) %></li>

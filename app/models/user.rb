@@ -9,5 +9,9 @@ class User < ApplicationRecord
     has_many :like_sounds, dependent: :destroy
     has_many :like_user, dependent: :destroy
     has_many :comments, dependent: :destroy
-
+    def self.search(params)
+        results = all.order(created_at: :desc)
+        results = results.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    	results
+    end
 end

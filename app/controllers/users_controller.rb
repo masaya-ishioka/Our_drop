@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 			redirect_to root_path
 		else
 			render :new
-			flash[:danger] = "※は必須項目です。"
+			flash[:danger] = "ERROR_※は必須項目です。"
 		end
 	end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 			flash[:success] = "ログインしました。"
 		else
 			render :login_form
-			flash[:danger] = "メールアドレスとパスワードが一致しません。"
+			flash[:danger] = "ERROR_メールアドレスとパスワードが一致しません。"
 		end
 	end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.all
+		@users = User.search(params)
 	end
 
 	def like_index
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 			flash[:info] = "パスワードを変更しました。"
 		else
 			render :password_edit
-			flash[:danger] = "パスワードが一致しません。"
+			flash[:danger] = "ERROR_パスワードが一致しません。"
 		end
 	end
 
