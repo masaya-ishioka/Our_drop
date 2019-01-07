@@ -26,6 +26,7 @@ class SoundsController < ApplicationController
 		@sound = Sound.find_by(id: params[:id])
 		response.headers['X-Frame-Options'] = 'ALLOWALL #{@sound.url}'
 		@comment = Comment.new
+		@comments = Comment.where(sound_id: @sound.id)
 	end
 
 	def update

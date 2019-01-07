@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   	resources :like_users, only:[:create, :destroy]
   end
   resources :sounds do
-  	resources :comments, only:[:edit, :update, :create, :destroy]
+  	resources :comments, only:[:create, :destroy]
     resources :like_sounds, only:[:create, :destroy]
   end
 end

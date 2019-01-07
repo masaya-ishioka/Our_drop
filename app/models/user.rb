@@ -8,5 +8,6 @@ class User < ApplicationRecord
     has_many :sounds, dependent: :destroy
     has_many :like_sounds, dependent: :destroy
     has_many :like_user, dependent: :destroy
+    has_many :comments, dependent: :destroy
 
 end
