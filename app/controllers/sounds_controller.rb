@@ -15,7 +15,7 @@ class SoundsController < ApplicationController
 	end
 
 	def index
-		@sounds = Sound.all
+		@sounds = Sound.search(params)
 	end
 
 	def edit
