@@ -4,4 +4,5 @@ class Comment < ApplicationRecord
 	validates :comment, length: {maximum: 140}
 
 	belongs_to :sound
+	belongs_to :user
 end
