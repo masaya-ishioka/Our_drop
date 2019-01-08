@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get "users/:id/password_edit" => "users#password_edit", as: "users_password_edit"
   patch "users/:id/password_update" => "users#password_update", as: "users_password"
   get "users/:id/likes" => "users#like_index", as: "users_likes_index"
+  get "sounds/day_rank"
+  get "sounds/week_rank"
+  get "sounds/month_rank"
   resources :users do
   	resources :like_users, only:[:create, :destroy]
   end

@@ -22,6 +22,27 @@ class SoundsController < ApplicationController
 		@sounds = Sound.search(params)
 	end
 
+	def day_rank
+		@sounds = Sound.search(params)
+		@like_day = LikeSound.where(created_at: 1.day.ago..Time.now)
+		@sounds_day = @like_day.where(sound_id: @sounds.pluck(:id))
+		@sound_ranking = @sounds.find(@sounds_day.group(:sound_id).order('count(sound_id) desc').pluck(:sound_id))
+	end
+
+	def week_rank
+		@sounds = Sound.search(params)
+		@like_week = LikeSound.where(created_at: 1.week.ago..Time.now)
+		@sounds_week = @like_week.where(sound_id: @sounds.pluck(:id))
+		@sound_ranking = @sounds.find(@sounds_week.group(:sound_id).order('count(sound_id) desc').pluck(:sound_id))
+	end
+
+	def month_rank
+		@sounds = Sound.search(params)
+		@like_month = LikeSound.where(created_at: 1.month.ago..Time.now)
+		@sounds_month = @like_month.where(sound_id: @sounds.pluck(:id))
+		@sound_ranking = @sounds.find(@sounds_month.group(:sound_id).order('count(sound_id) desc').pluck(:sound_id))
+	end
+
 	def edit
 		@sound = Sound.find_by(id: params[:id])
 	end
