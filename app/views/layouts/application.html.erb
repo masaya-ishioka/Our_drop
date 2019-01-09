@@ -4,7 +4,6 @@
     <title>Our drop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Corben:700 rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -26,6 +25,7 @@
       </ul>
       <% else %>
       <ul class="header">
+        <li><%= link_to "User一覧", users_path %></li>
         <li><%= link_to "曲一覧", sounds_path %></li>
         <li><%= link_to "ログイン", users_login_form_path %></li>
         <li><%= link_to "新規登録", new_user_path %></li>
