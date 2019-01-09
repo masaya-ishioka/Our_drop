@@ -1,7 +1,56 @@
+
 <div class="row">
-	<img src="/our_drop-logo.png" class="log">
-	<h1 class="log_text">Let's find your favorite music.</h1>
-	<%= link_to sounds_path do %>
-	<p class="top_link">START</p>
-	<% end %>
+	<div class="how_to">
+		<h1>How to 1/4</h1>
+		<div class="how_to_text">
+			<img src="/how_to1.png" class="how_to_image">
+			<h2>曲一覧ページではメインタグ、雰囲気、ポイントの３つにセレクトボックスがあります！</h2>
+			<button id="next1" class="btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="how_to2">
+		<h1>How to 2/4</h1>
+		<div class="how_to_text">
+			<img src="/how_to2.png" class="how_to_image">
+			<h2>今自分が探したい曲に合いそうなものを選択してください！<br>どれか一つだけでも大丈夫！決まったら Search !</h2>
+			<button id="next2" class="btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="how_to3">
+		<h1>How to 3/4</h1>
+		<div class="how_to_text">
+			<img src="/how_to3.png" class="how_to_image">
+			<h2>気になる曲が見つかればそのページをクリック！<br>あなたの気になる曲がきっと見つかるはずです。</h2>
+			<button id="next3" class="btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="how_to4">
+		<h1>How to 4/4</h1>
+		<div class="how_to_text">
+			<img src="/how_to4.png" class="how_to_image">
+			<h2>それではOur dropをお試しください。</h2>
+			<%= link_to "START", sounds_path, class: "btn btn-info" %>
+		</div>
+	</div>
+
+	<div class = "col-md-4"></div>
+	<div class="col-md-4">
+		<img src="/our_drop-logo.png" class="log">
+	</div>
+	<div class = "col-md-4"></div>
+</div>
+<div class="row">
+	<div class = "col-md-2"></div>
+	<div class = "col-md-8">
+		<h1 class="log_text">Let's find your favorite music.</h1>
+		<div class="row">
+			<div class="col-md-4"></div>
+				<button id="next" class="btn col-md-4" style="font-family: Impact; font-size: 18px;">How to</button>
+			<div class="col-md-4"></div>
+	    </div>
+		<%= link_to sounds_path do %>
+		<p class="top_link">START</p>
+		<% end %>
+	</div>
+	<div class = "col-md-2"></div>
 </div>
