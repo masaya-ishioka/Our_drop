@@ -34,7 +34,12 @@
 			<div class="index_box">
 			<%= link_to sound_path(sound.id) do %>
 				<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
-				<%= sound.title %>
+				<ul>
+					<li>Title: <%= sound.title %></li>
+					<li>M <%= sound.tag1 %></li>
+					<li>F <%= sound.tag2 %></li>
+					<li>P <%= sound.tag3 %></li>
+				</ul>
 			<% end %>
 			</div>
 		<%end%>

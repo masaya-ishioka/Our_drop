@@ -77,6 +77,11 @@ body{
 	float:left;
 }
 
+ul li{
+	padding:0;
+	margin :0;
+}
+
 /*======フォーム======*/
 
 label{
@@ -289,11 +294,20 @@ small{
 /*======曲一覧======*/
 
 .index_box{
-	height: 270px;
+	height: 330px;
 	width: 270px;
 	margin: 10px;
 	text-align: center;
 	float: left;
+}
+.index_box ul{
+	background: rgba(0,0,0,0.5);
+	width: 260px;
+	margin: 0 auto;
+}
+.index_box ul li{
+	color: #FFF;
+	font-family: Georgia;
 }
 
 /*========検索フォーム用==========*/
