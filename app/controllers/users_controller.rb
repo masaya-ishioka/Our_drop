@@ -108,10 +108,12 @@ class UsersController < ApplicationController
 	end
 
 	def user_active
-    	if @current_user.active == true
-    		redirect_to root_path
-    		flash[:danger] = "すでに有効化されています。"
-    	end
+    	if @current_user
+	    	if @current_user.active == true
+	    		redirect_to root_path
+	    		flash[:danger] = "すでに有効化されています。"
+	    	end
+	    end
     end
 
 end
