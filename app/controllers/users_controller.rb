@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
 	def active
 		@user = User.find_by(id: params[:id])
+		session[:user_id] = @user.id
 	end
 
 	def active_update
