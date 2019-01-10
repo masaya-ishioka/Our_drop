@@ -75,7 +75,8 @@ Rails.application.configure do
       password: 'rkyzpdkeibsobina',
       enable_starttls_auto: true
   }
-
+  host = 'https://our-drop.herokuapp.com'                     # ローカル環境
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
