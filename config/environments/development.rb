@@ -46,8 +46,6 @@ Rails.application.configure do
       password: 'rkyzpdkeibsobina',
       enable_starttls_auto: true
   }
-  host = 'localhost:3000'                     # ローカル環境
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
