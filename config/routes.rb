@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "users/login_form"
   post "users/login"
   post "users/logout"
+  get "users/:id/active" => "users#active", as: "users_active"
+  patch "users/:id/active_update" => "users#active_update", as: "users_active_update"
   get "users/:id/password_edit" => "users#password_edit", as: "users_password_edit"
   patch "users/:id/password_update" => "users#password_update", as: "users_password"
   get "users/:id/likes" => "users#like_index", as: "users_likes_index"

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+	before_action :not_user_active
 	def create
 		@comment = Comment.new(user_id: @current_user.id, sound_id: params[:sound_id], comment: params[:comment][:comment])
 		if @comment.save
