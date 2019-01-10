@@ -8,23 +8,24 @@
 			<%= form_for(@user) do |f| %>
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
+				<p style="color:red;">※は必須項目です</p>
 				<div class="form-group">
-					<label>ニックネームまたはバンド名</label>
+					<label><span style="color:red;">※</span>ニックネームまたはバンド名</label>
 					<%= f.text_field :name, class: "form-control" %>
 				</div>
 
 				<div class="form-group">
-					<label>メールアドレス</label>
+					<label><span style="color:red;">※</span>メールアドレス</label>
 					<%= f.text_field :email, class: "form-control"  %>
 				</div>
 
 				<div class="form-group">
-					<label>パスワード</label>
+					<label><span style="color:red;">※</span>パスワード(半角6文字以上)</label>
 					<%= f.password_field :password, class: "form-control"  %>
 				</div>
 
 				<div class="form-group">
-					<label>パスワード（確認）</label>
+					<label><span style="color:red;">※</span>パスワード（確認）</label>
 					<%= f.password_field :password_confirmation, class: "form-control"  %>
 				</div>
 			</div>

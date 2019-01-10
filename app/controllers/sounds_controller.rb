@@ -14,7 +14,7 @@ class SoundsController < ApplicationController
 			flash[:success] = "投稿しました。"
 		else
 			render new_sound_path
-			flash[:danger] = "ERROR_投稿内容を確認してください。"
+			flash[:danger] = "ERROR_※は必須項目です。"
 		end
 	end
 

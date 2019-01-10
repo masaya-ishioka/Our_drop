@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 			UserMailer.active(@user).deliver_now
 			session[:user_id] = @user.id
 			redirect_to root_path
+			flash[:info] = "送信されたメールからユーザー有効化してください。"
 		else
 			render :new
 			flash[:danger] = "ERROR_※は必須項目です。"
