@@ -150,8 +150,22 @@ small{
 	display: inline-block;
 }
 
-/*======トップページ用======*/
+/*========チュートリアル用==========*/
+
 .how_to, .how_to2, .how_to3, .how_to4{
+	z-index: 100;
+	background: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	position: fixed;
+	top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+.s_how_to, .s_how_to2, .s_how_to3, .s_how_to4, .s_how_to5, .s_how_to6{
 	z-index: 100;
 	background: rgba(0,0,0,0.6);
 	width: 100%;
@@ -175,6 +189,12 @@ small{
 	font-family: Impact;
 	text-align: center;
 }
+.s_how_to h1, .s_how_to2 h1, .s_how_to3 h1, .s_how_to4 h1, .s_how_to5 h1, .s_how_to6 h1{
+	background-color: #000;
+	color: #fff;
+	font-family: Impact;
+	text-align: center;
+}
 .how_to_text h2{
 	width: 80%;
 	background-color: #000;
@@ -186,6 +206,8 @@ small{
 	width: 80%;
 	height: 80%;
 }
+
+/*======トップページ用======*/
 
 .log{
 	margin: 35% 20% 0 18%;

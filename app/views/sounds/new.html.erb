@@ -1,8 +1,60 @@
 <div class="row">
+	<div class="s_how_to">
+		<h1>How to 1/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new.png" class="how_to_image">
+			<h2>まずはあなたのDropboxページにアクセスしましょう。</h2>
+			<button class="next1 btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="s_how_to2">
+		<h1>How to 2/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new2.png" class="how_to_image">
+			<h2>共有したい曲の共有ボタンを押します。</h2>
+			<button class="next2 btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="s_how_to3">
+		<h1>How to 3/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new3.png" class="how_to_image">
+			<h2>フォームの右下のリンク作成を押します。</h2>
+			<button class="next3 btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="s_how_to4">
+		<h1>How to 4/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new4.png" class="how_to_image">
+			<h2>フォームの右下のリンクをコピーを押します。</h2>
+			<button class="next4 btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="s_how_to5">
+		<h1>How to 5/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new5.png" class="how_to_image">
+			<h2>コピーは完了しましたか？</h2>
+			<button class="next5 btn btn-info">NEXT</button>
+		</div>
+	</div>
+	<div class="s_how_to6">
+		<h1>How to 6/6</h1>
+		<div class="how_to_text">
+			<img src="/sound_new6.png" class="how_to_image">
+			<h2>コピーしたURLを貼り付ければOK！</h2>
+			<button class="next6 btn btn-info">閉じる</button>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-12">
 		<h1 class="center">新規投稿</h1>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+	</div>
 	<div class="col-md-4">
 		<%= form_for(@sound) do |f| %>
 			<div class="form-group">
@@ -14,7 +66,6 @@
 				<label>drop-box共有用URL</label><br>
 				<%= f.text_field :url, class: "form-control"  %>
 			</div>
-
 			<div class="form-group">
 				<label>
 					メインタグ
@@ -49,5 +100,12 @@
 
 		<%end%>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<div class="form-group">
+				<button class="next btn">Dropbox共有用URLの取得の仕方はココ！</button>
+		</div>
+		<div class="form-group">
+			<%= link_to "Dropboxへ行く人はココ！", "https://www.dropbox.com/", target: :blank, class: "btn btn-info" %>
+		</div>
+	</div>
 </div>

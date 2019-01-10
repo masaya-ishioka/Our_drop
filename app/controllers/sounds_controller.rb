@@ -13,7 +13,7 @@ class SoundsController < ApplicationController
 			redirect_to sounds_path
 			flash[:success] = "投稿しました。"
 		else
-			render :new
+			render new_sound_path
 			flash[:danger] = "ERROR_投稿内容を確認してください。"
 		end
 	end
