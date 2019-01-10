@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :user_active, {only: [:active, :active_update]}
+	before_action :not_user_active, {only: [:like_index, :edit, :update, :password_edit, :password_update, :update, :destroy, :show]}
 	def top
 	end
 
@@ -6,9 +8,21 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def active
+		@user = User.find_by(id: params[:id])
+	end
+
+	def active_update
+		@user = User.find_by(id: params[:id])
+		@user.update(user_params)
+		redirect_to root_path
+		flash[:info] = "アカウント有効化しました。"
+	end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			UserMailer.active(@user).deliver_now
 			session[:user_id] = @user.id
 			redirect_to root_path
 		else
@@ -89,7 +103,14 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :facebook, :twitter, :instagram, :youtube, :user_text)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :facebook, :twitter, :instagram, :youtube, :user_text, :active)
 	end
+
+	def user_active
+    	if @current_user.active == true
+    		redirect_to root_path
+    		flash[:danger] = "すでに有効化されています。"
+    	end
+    end
 
 end

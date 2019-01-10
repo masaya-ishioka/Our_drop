@@ -1,0 +1,6 @@
+<%= @user.name %>さんこんにちは！
+
+
+  下記のリンクからアクセスしてアカウントを有効化してください。
+
+<%= link_to 'active', users_active_url(@user.id) %>

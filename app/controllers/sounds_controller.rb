@@ -1,5 +1,5 @@
 class SoundsController < ApplicationController
-
+	before_action :not_user_active, {only: [:edit, :show, :update, :destroy, :new, :create]}
 	def new
 		@sound = Sound.new
 	end

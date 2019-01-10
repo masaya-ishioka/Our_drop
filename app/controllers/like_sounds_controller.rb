@@ -1,4 +1,5 @@
 class LikeSoundsController < ApplicationController
+	before_action :not_user_active
 	def create
 		@like = LikeSound.new(user_id: @current_user.id, sound_id: params[:sound_id])
 		@like.save
