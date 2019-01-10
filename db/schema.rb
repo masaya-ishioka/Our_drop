@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2019_01_10_061654) do
     t.string "twitter"
     t.string "instagram"
     t.string "youtube"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.boolean "active", default: false
   end
 
