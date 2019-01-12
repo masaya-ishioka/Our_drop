@@ -291,12 +291,21 @@ small{
 	background: rgba(0,0,0,0.2);
   	border-radius: 5px;
 }
+.like_box ul{
+	background: rgba(0,0,0,0.5);
+	width: 260px;
+	margin: 0 auto;
+}
+.like_box ul li{
+	color: #FFF;
+	font-family: Georgia;
+}
 .like_image{
 	height: 260px;
 	width: 260px;
 }
 .like_box{
-	height: 270px;
+	height: 330px;
 	width: 260px;
 	margin: 10px;
 	text-align: center;
@@ -309,8 +318,22 @@ small{
 /*======コメント機能用======*/
 
 .comment_image{
-	height: 100px;
-	width: 100px;
+	height: 120px;
+	width: 120px;
+}
+.comment_box{
+	height: 140px;
+	width: 120px;
+}
+.comment_box ul{
+	background: rgba(0,0,0,0.5);
+	width: 120px;
+	margin: 0 auto;
+	text-align: center;
+}
+.comment_box ul li{
+	color: #FFF;
+	font-family: Georgia;
 }
 .margin{
 	margin: 10px 0;

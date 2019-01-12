@@ -65,7 +65,7 @@
 
 			<div class="form-group">
 				<label><span style="color:red;">※</span>drop-box共有用URL</label><br>
-				<%= f.text_field :url, class: "form-control"  %>
+				<%= f.text_field :url, class: "form-control",placeholder: "https://www.dropbox.com..." %>
 			</div>
 			<div class="form-group">
 				<label><span style="color:red;">※</span>
@@ -90,7 +90,7 @@
 
 			<div class="form-group">
 				<label>曲紹介</label><br>
-				<%= f.text_area :sound_text, class: "form-control"  %>
+				<%= f.text_area :sound_text, class: "form-control", placeholder: "200文字以内" %>
 			</div>
 
 			<div class="form-group row">
