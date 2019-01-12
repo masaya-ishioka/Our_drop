@@ -71,8 +71,7 @@ Rails.application.configure do
       port: 587,
       address: 'smtp.gmail.com',
       domain: 'smtp.gmail.com',
-      user_name: 'penpenmono31+our-drop@gmail.com',
-      password: 'rkyzpdkeibsobina',
+  
       enable_starttls_auto: true
   }
   host = 'https://our-drop.herokuapp.com'                     # ローカル環境
