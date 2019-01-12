@@ -61,7 +61,7 @@
 			<% @user.sounds.order(created_at: :desc).each do |sound| %>
 			<tbody class="show_link">
 				<tr>
-					<td><%= link_to sound.title,sound_path(sound.id), class: "show_link" %></td>
+					<td><%= link_to sound.title.truncate(16),sound_path(sound.id), class: "show_link" %></td>
 					<td><%= sound.tag1 %></td>
 					<td><%= sound.tag2 %></td>
 					<td><%= sound.tag3 %></td>

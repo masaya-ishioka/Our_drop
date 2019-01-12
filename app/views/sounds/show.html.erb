@@ -11,9 +11,12 @@
 				<th>曲名</th>
 				<td><%= @sound.title %></td>
 			</tr>
+		</table>
+		<table class="table">
 			<tr>
 				<th>アーティスト名</th>
 				<td><%= link_to @sound.user.name, user_path(@sound.user_id) %></td>
+				<td></td>
 			</tr>
 			<tr>
 				<th>メインタグ</th>
