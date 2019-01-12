@@ -15,8 +15,8 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-1">
 	<% if @current_user %>
-		<% if @user.id ==  @current_user.id %>
-			<%= link_to "マイページ編集", edit_user_path(@current_user.id), class: "btn btn-info" %>
+		<% if @user.id ==  @current_user.id || @current_user.admin == true %>
+			<%= link_to "マイページ編集", edit_user_path(@user.id), class: "btn btn-info" %>
 		<% end %>
 	<% end %>
 	</div>
@@ -58,7 +58,7 @@
 					<th></th>
 				</tr>
 			</thead>
-			<% @user.sounds.each do |sound| %>
+			<% @user.sounds.order(created_at: :desc).each do |sound| %>
 			<tbody class="show_link">
 				<tr>
 					<td><%= link_to sound.title,sound_path(sound.id), class: "show_link" %></td>
@@ -66,9 +66,10 @@
 					<td><%= sound.tag2 %></td>
 					<td><%= sound.tag3 %></td>
 					<% if @current_user %>
-						<% if @user.id == @current_user.id %>
+						<% if @user.id == @current_user.id || @current_user.admin == true %>
 							<td>
 									<%= link_to "編集", edit_sound_path(sound.id), class: "btn btn-info" %>
+									<%= link_to "削除", sound_path(sound.id), method: :delete, class: "btn btn-danger"%>
 							</td>
 						<% end %>
 					<% end %>

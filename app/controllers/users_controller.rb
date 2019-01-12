@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	before_action :user_active, {only: [:active, :active_update]}
-	before_action :not_user_active, {only: [:like_index, :edit, :update, :password_edit, :password_update, :update, :destroy, :show]}
+	before_action :not_user_active, {only: [:like_index, :edit, :update, :password_edit, :password_update, :destroy, :show]}
+	before_action :ensure_correct_user, {only: [:like_index, :edit, :update, :password_edit, :password_update, :destroy]}
 	def top
 	end
 
@@ -28,8 +29,8 @@ class UsersController < ApplicationController
 			redirect_to root_path
 			flash[:info] = "送信されたメールからユーザー有効化してください。"
 		else
+			flash.now[:danger] = "ERROR_※は必須項目です。"
 			render :new
-			flash[:danger] = "ERROR_※は必須項目です。"
 		end
 	end
 
@@ -43,8 +44,8 @@ class UsersController < ApplicationController
 			redirect_to sounds_path
 			flash[:success] = "ログインしました。"
 		else
+			flash.now[:danger] = "ERROR_メールアドレスとパスワードが一致しません。"
 			render :login_form
-			flash[:danger] = "ERROR_メールアドレスとパスワードが一致しません。"
 		end
 	end
 
@@ -80,8 +81,8 @@ class UsersController < ApplicationController
 			redirect_to root_path
 			flash[:info] = "パスワードを変更しました。"
 		else
+			flash.now[:danger] = "ERROR_パスワードが一致しません。"
 			render :password_edit
-			flash[:danger] = "ERROR_パスワードが一致しません。"
 		end
 	end
 
@@ -91,9 +92,13 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find_by(id: params[:id])
-		@user.update(user_params)
-		redirect_to user_path(@current_user.id)
-		flash[:success] = "プロフィールを変更しました。"
+		if @user.update(user_params)
+			redirect_to user_path(@current_user.id)
+			flash[:success] = "プロフィールを変更しました。"
+		else
+			flash.now[:danger] = "ERROR_内容を確認してください。"
+			render :edit
+		end
 	end
 
 	def destroy
@@ -115,6 +120,14 @@ class UsersController < ApplicationController
 	    		flash[:danger] = "すでに有効化されています。"
 	    	end
 	    end
+    end
+
+    def ensure_correct_user
+    	if @current_user.admin == true
+        elsif @current_user.id != params[:id].to_i
+            redirect_to root_path
+            flash[:danger] = "ログインしてください。または、権限がありません。"
+        end
     end
 
 end

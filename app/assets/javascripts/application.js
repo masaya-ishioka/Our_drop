@@ -16,24 +16,24 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+document.addEventListener("turbolinks:load",　function(){
 	$('#next').click(function(){
-		$('.how_to').fadeIn(2000);
+		$('.how_to').fadeIn(1000);
 	});
 	$('#next1').click(function(){
-		$('.how_to').fadeOut(2000);
-		$('.how_to2').fadeIn(2000);
+		$('.how_to').fadeOut(1000);
+		$('.how_to2').fadeIn(1000);
 	});
 	$('#next2').click(function(){
-		$('.how_to2').fadeOut(2000);
-		$('.how_to3').fadeIn(2000);
+		$('.how_to2').fadeOut(1000);
+		$('.how_to3').fadeIn(1000);
 	});
 	$('#next3').click(function(){
-		$('.how_to3').fadeOut(2000);
-		$('.how_to4').fadeIn(2000);
+		$('.how_to3').fadeOut(1000);
+		$('.how_to4').fadeIn(1000);
 	});
 	$('.how_link').click(function(){
-		$('.how_to4').fadeOut(2000);
+		$('.how_to4').fadeOut(1000);
 	});
 
 

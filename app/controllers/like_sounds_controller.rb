@@ -1,16 +1,20 @@
 class LikeSoundsController < ApplicationController
 	before_action :not_user_active
+	before_action :set_variables
 	def create
-		@like = LikeSound.new(user_id: @current_user.id, sound_id: params[:sound_id])
+		@like = @current_user.like_sounds.new(sound_id: @sound.id)
 		@like.save
-		redirect_to sound_path(params[:sound_id])
-		flash[:success] = "お気に入りに追加しました。"
 	end
 
 	def destroy
-		@like = LikeSound.find_by(user_id: @current_user.id, sound_id: params[:sound_id])
+		@like = @current_user.like_sounds.find_by(sound_id: @sound.id)
 		@like.destroy
-		redirect_to sound_path(params[:sound_id])
-		flash[:danger] = "お気に入りを解除しました。"
+	end
+
+	private
+
+	def set_variables
+	  @sound = Sound.find(params[:sound_id])
+	  @id_name = "#like-link-#{@sound.id}"
 	end
 end

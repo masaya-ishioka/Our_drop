@@ -1,0 +1,11 @@
+<span class="like-link" id="like-link-<%= @sound.id %>">
+<% if @current_user %>
+	<% unless @sound.user_id == @current_user.id %>
+		<% if @current_user.like_sounds.find_by(sound_id: @sound.id) %>
+			<%= link_to "スキコレ解除", sound_like_sound_path(@sound.id,@current_user.id), remote: true, method: :delete, class: "btn btn-default" %>
+		<% else %>
+			<%= link_to "スキコレ登録", sound_like_sounds_path(@sound.id,@current_user.id), remote: true, method: :post, class: "btn btn-info" %>
+		<% end %>
+	<% end %>
+<% end %>
+</span>

@@ -16,23 +16,23 @@
 			</div>
 
 			<div class="form-group">
-				<label>メインタグ</label>
-				<%= f.select :tag1, ["男ボーカル", "女ボーカル", "混合ボーカル", "歌なし", "ボーカロイド"], :prompt => "選択してください" %>
+				<label>メインタグ
+				<%= f.select :tag1, ["男ボーカル", "女ボーカル", "混合ボーカル", "歌なし", "ボーカロイド"], :prompt => "選択してください" %></label>
 			</div>
 
 			<div class="form-group">
-				<label>雰囲気</label>
-				<%= f.select :tag2, ["明るい", "楽しい", "クール", "セクシィ", "優しい", "暗い", "怒り"], :prompt => "選択してください" %>
+				<label>雰囲気
+				<%= f.select :tag2, ["明るい", "楽しい", "クール", "セクシィ", "優しい", "暗い", "怒り"], :prompt => "選択してください" %></label>
 			</div>
 
 			<div class="form-group">
-				<label>ポイント</label>
-				<%= f.select :tag3, ["ギターかっけぇ", "ベースかっけぇ", "ドラムかっけぇ", "キーボードかっけぇ", "管楽器かっけぇ", "イントロかっけぇ", "弾き語り"], :prompt => "選択してください" %>
+				<label>ポイント
+				<%= f.select :tag3, ["ギターかっけぇ", "ベースかっけぇ", "ドラムかっけぇ", "キーボードかっけぇ", "管楽器かっけぇ", "イントロかっけぇ", "弾き語り"], :prompt => "選択してください" %></label>
 			</div>
 
 			<div class="form-group">
 				<label>曲紹介</label><br>
-				<%= f.text_area :sound_text, class: "form-control"  %>
+				<%= f.text_area :sound_text, class: "form-control", placeholder: "200文字以内" %>
 			</div>
 
 			<div class="form-group row">
