@@ -30,7 +30,7 @@
 			</tr>
 		</table>
 		<div class="sound_text">
-			<p style="padding: 10px;"><%= @sound.sound_text %></p>
+			<p style="padding: 10px;"><%= simple_format(@sound.sound_text) %></p>
 		</div>
 		<%= render "like_sounds/like", sound_id: @sound.id %>
 		<%=link_to "戻る", :back, class: "btn btn-default" %>

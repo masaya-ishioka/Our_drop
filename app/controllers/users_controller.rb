@@ -88,6 +88,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
+		uri_reg = URI.regexp(%w[http https])
+		@user.user_text.gsub!(uri_reg) {%Q{<a href="#{$&}">#{$&}</a>}}
 	end
 
 	def update
