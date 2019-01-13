@@ -99,21 +99,24 @@ class UsersController < ApplicationController
 
 	def password_forget_update
 		@user = User.find_by(id: params[:id])
-		if (Time.zone.now - @user.password_forget) < 1.hours
-			if @user.update(user_params)
-				binding.pry
-				@user.password_forget = @user.password_forget - 2.hour
-				binding.pry
-				@user.save
-				redirect_to root_path
-				flash[:info] = "パスワードを変更しました。"
-			else
-				flash.now[:danger] = "ERROR_パスワードが一致しません。"
-				render :password_forget_edit
-			end
+		if user_params[:password].blank?
+			flash.now[:danger] = "パスワードを入力してください。"
+			render :password_forget_edit
 		else
-			redirect_to root_path
-			flash[:danger] = "ERROR_有効時間が過ぎています。または変更済みです。"
+			if (Time.zone.now - @user.password_forget) < 1.hours
+				if @user.update(user_params)
+					@user.password_forget = @user.password_forget - 2.hour
+					@user.save
+					redirect_to root_path
+					flash[:info] = "パスワードを変更しました。"
+				else
+					flash.now[:danger] = "ERROR_パスワードが一致しません。"
+					render :password_forget_edit
+				end
+			else
+				redirect_to root_path
+				flash[:danger] = "ERROR_有効時間が過ぎています。または変更済みです。"
+			end
 		end
 	end
 
