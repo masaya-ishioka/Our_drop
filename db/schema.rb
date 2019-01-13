@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_061654) do
+ActiveRecord::Schema.define(version: 2019_01_13_073256) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_061654) do
     t.string "instagram"
     t.string "youtube"
     t.boolean "active", default: false
+    t.datetime "password_forget"
   end
 
 end

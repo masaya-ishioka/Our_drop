@@ -1,4 +1,5 @@
 class LikeUsersController < ApplicationController
+	before_action :not_current_user
 	before_action :not_user_active
 	def create
 		@like = LikeUser.new(my_id: @current_user.id, user_id: params[:user_id])

@@ -7,9 +7,18 @@ class ApplicationController < ActionController::Base
     end
 
     def not_user_active
-      	if @current_user.active == false
-    		redirect_to root_path
-    		flash[:danger] = "送られたメールからアカウントを有効化してください。"
-    	end
+        if @current_user
+          	if @current_user.active == false
+        		redirect_to root_path
+        		flash[:danger] = "送られたメールからアカウントを有効化してください。"
+        	end
+        end
+    end
+
+    def not_current_user
+        unless @current_user
+            redirect_to root_path
+            flash[:info] = "ログインしてください。"
+        end
     end
 end
