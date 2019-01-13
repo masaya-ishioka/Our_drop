@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+	before_action :not_current_user, {only: [:like_index, :edit, :update, :password_edit, :password_update, :destroy]}
 	before_action :user_active, {only: [:active, :active_update]}
 	before_action :not_user_active, {only: [:like_index, :edit, :update, :password_edit, :password_update, :destroy, :show]}
 	before_action :ensure_correct_user, {only: [:like_index, :edit, :update, :password_edit, :password_update, :destroy]}
+
 	def top
 	end
 
@@ -68,6 +70,51 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by(id: params[:id])
+	end
+
+	def password_forget
+	end
+
+	def email_where
+		if @user = User.find_by(email: params[:email_where][:email])
+			@user.password_forget = Time.now
+			@user.save
+			PasswordForgetMailer.password_forget(@user).deliver_now
+			redirect_to root_path
+			flash[:info] = "送信されたメールから１時間以内にパスワードを変更してください。"
+		else
+			flash.now[:danger] = "ERROR_メールアドレスが間違っています。"
+			render users_password_forget_path
+		end
+	end
+
+	def password_forget_edit
+		@user = User.find_by(id: params[:id])
+		if (Time.zone.now - @user.password_forget) < 1.hours
+		else
+			redirect_to root_path
+			flash[:danger] = "ERROR_有効時間が過ぎています。または変更済みです。"
+		end
+	end
+
+	def password_forget_update
+		@user = User.find_by(id: params[:id])
+		if (Time.zone.now - @user.password_forget) < 1.hours
+			if @user.update(user_params)
+				binding.pry
+				@user.password_forget = @user.password_forget - 2.hour
+				binding.pry
+				@user.save
+				redirect_to root_path
+				flash[:info] = "パスワードを変更しました。"
+			else
+				flash.now[:danger] = "ERROR_パスワードが一致しません。"
+				render :password_forget_edit
+			end
+		else
+			redirect_to root_path
+			flash[:danger] = "ERROR_有効時間が過ぎています。または変更済みです。"
+		end
 	end
 
 	def password_edit

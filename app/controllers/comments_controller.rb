@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+	before_action :not_current_user
 	before_action :not_user_active
 	before_action :set_variables
+
 	def create
 		@comment = Comment.new(user_id: @current_user.id, sound_id: params[:sound_id], comment: params[:comment][:comment])
 		if @comment.save
@@ -8,7 +10,7 @@ class CommentsController < ApplicationController
 			flash[:success] = "コメントを投稿しました。"
 		else
 			flash.now[:danger] = "投稿に失敗しました。"
-			render sounds_path(params[:sound_id])
+			render sound_path(params[:sound_id])
 		end
 	end
 

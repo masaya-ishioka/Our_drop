@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<p class="margin"><%= comment.comment %></p>
+					<p class="margin"><%= simple_format(comment.comment) %></p>
 				</div>
 				<div class="col-md-1">
 					<%if @current_user %>
