@@ -34,7 +34,7 @@
 		<% @sounds.each do |sound| %>
 			<div class="index_box">
 			<%= link_to sound_path(sound.id) do %>
-				<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
+				<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%>
 				<ul>
 					<li><%= sound.title.truncate(10) %></li>
 					<li>M <%= sound.tag1 %></li>
