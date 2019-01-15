@@ -763,11 +763,13 @@ header{
 }
 .index_box{
 	width: 95%;
-	height: 350px;
+	height: auto;
+	margin: 10px 0;
 }
 .like_image{
-	height: 280px;
+	height: auto;
 	width: 100%;
+	max-width: 100%;
 }
 }
 
