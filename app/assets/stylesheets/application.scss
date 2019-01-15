@@ -752,7 +752,9 @@ header{
 }
 .menu ul a{
 	font-size: 15px;
-
+}
+.menu ul a:active{
+	background: rgba(255,255,255,0.5);
 }
 .menu li{
 	display: block;
