@@ -1,9 +1,8 @@
-<div class="row search_top">
-	<div class="col-md-3"></div>
-			<div class="col-md-7">
-
+<div class="row">
+			<div class="search_top col-md-12 col-sm-12 col-xs-12">
 				<%= form_with url: sounds_week_rank_path, method: :get, local: true do |f| %>
-					<%= f.text_field :search, class: "search-control", placeholder: "曲名を入力してください"  %><br>
+					<%= f.text_field :search, class: "search-control", placeholder: "曲名を入力してください"  %>
+				<div class="search_top1">
 					<label class="margin_right">
 						メインタグ
 		  				<%= f.select :search1, ["男ボーカル", "女ボーカル", "混合ボーカル", "歌なし", "ボーカロイド"], :prompt => "選択してください" %>
@@ -16,27 +15,29 @@
 		  				ポイント
 		  				<%= f.select :search3, ["ギターかっけぇ", "ベースかっけぇ", "ドラムかっけぇ", "キーボードかっけぇ", "管楽器かっけぇ", "イントロかっけぇ", "弾き語り"], :prompt => "選択してください" %>
 	  				</label>
+	  			</div>
+	  			<div class="search_top1">
 		  			<%= f.submit 'Search', name: nil, class: "btn btn-info" %>
+		  		</div>
 				<% end %>
 			</div>
-	<div class="col-md-2"></div>
 </div>
 <div class="row">
 	<div class="col-md-1"></div>
-	<div class="col-md-10 like_index_box">
-		<div class="col-md-12">
-		<h2 style="font-family: Impact;">Weekly Rankings</h2>
-		<%= link_to "All", sounds_path, class: "btn btn-info" %>
-		<%= link_to "Daily Ranking", sounds_day_rank_path, class: "btn btn-info" %>
-		<%= link_to "Weekly Rankings", sounds_week_rank_path, class: "btn btn-default" %>
-		<%= link_to "Monthly Ranking", sounds_month_rank_path, class: "btn btn-info" %>
+	<div class="col-md-10 col-sm-12 col-xs-12 like_index_box">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+		<h2 style="font-family: Impact;">Weekly Ranking</h2>
+		<%= link_to "All", sounds_path, class: "btn btn-info" %><br>
+		<%= link_to "Daily Rank", sounds_day_rank_path, class: "btn btn-info" %>
+		<%= link_to "Weekly Rank", sounds_week_rank_path, class: "btn btn-default" %>
+		<%= link_to "Monthly Rank", sounds_month_rank_path, class: "btn btn-info" %>
 		</div>
 		<% @sound_ranking.each do |sound| %>
 			<div class="index_box">
 			<%= link_to sound_path(sound.id) do %>
 				<%= attachment_image_tag sound.user, :image, fallback: "/no_image.jpg", class: "like_image"%><br>
 				<ul>
-					<li>Title: <%= sound.title.truncate(13) %></li>
+					<li><%= sound.title.truncate(10) %></li>
 					<li>M <%= sound.tag1 %></li>
 					<li>F <%= sound.tag2 %></li>
 					<li>P <%= sound.tag3 %></li>

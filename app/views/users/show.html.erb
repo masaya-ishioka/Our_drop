@@ -1,7 +1,8 @@
+<div class="header_top"></div>
 <div class="row">
 	<div class="col-md-1"></div>
-	<div class="col-md-6"></div>
-	<div class="col-md-1">
+	<div class="col-md-5 col-sm-6 col-xs-12">
+		<%= attachment_image_tag @user, :image, fallback: "/no_image.jpg", class: "show_image"%>
 	<% if @current_user %>
 		<% unless @user.id == @current_user.id %>
 				<% if LikeUser.find_by(my_id: @current_user.id, user_id: @user.id) %>
@@ -11,26 +12,14 @@
 				<% end %>
 			<% end %>
 	<% end %>
-	</div>
-	<div class="col-md-1"></div>
-	<div class="col-md-1">
 	<% if @current_user %>
 		<% if @user.id ==  @current_user.id || @current_user.admin == true %>
 			<%= link_to "マイページ編集", edit_user_path(@user.id), class: "btn btn-info" %>
 		<% end %>
 	<% end %>
-	</div>
-	<div class="col-md-1"></div>
-</div>
-<div class="header_top"></div>
-<div class="row">
-	<div class="col-md-1"></div>
-	<div class="col-md-5">
-		<%= attachment_image_tag @user, :image, fallback: "/no_image.jpg", class: "show_image"%>
     </div>
-	<div class="col-md-5 row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10 user_show_box center">
+	<div class="col-md-5 col-sm-6 col-xs-12">
+		<div class="col-md-12 col-sm-12 col-xs-12 user_show_box center">
 			<h2 style="font-family: Impact;">profile</h2>
 			<ul>
 				<li><%= @user.name %></li>
@@ -41,27 +30,26 @@
 				<li class="li_margin"><%= link_to "you tube",@user.youtube, class: "li_link" %></li>
 			</ul>
 		</div>
-		<div class="col-md-1"></div>
 	</div>
 	<div class="col-md-1"></div>
 </div>
-<div class="row" style=" margin-top: 20px;">
+<div class="row" style=" padding-top: 20px;">
 	<div class="col-md-1"></div>
-	<div class="col-md-10 show-back">
+	<div class="col-md-10 col-sm-12 show-back">
 		<table class="table">
 			<thead class="show_link">
 				<tr>
 					<th>タイトル</th>
-					<th>メインタグ</th>
-					<th>雰囲気</th>
-					<th>ポイント</th>
+					<th>M</th>
+					<th>F</th>
+					<th>P</th>
 					<th></th>
 				</tr>
 			</thead>
 			<% @user.sounds.order(created_at: :desc).each do |sound| %>
 			<tbody class="show_link">
 				<tr>
-					<td><%= link_to sound.title.truncate(16),sound_path(sound.id), class: "show_link" %></td>
+					<td><%= link_to sound.title.truncate(10),sound_path(sound.id), class: "show_link" %></td>
 					<td><%= sound.tag1 %></td>
 					<td><%= sound.tag2 %></td>
 					<td><%= sound.tag3 %></td>
@@ -69,7 +57,6 @@
 						<% if @user.id == @current_user.id || @current_user.admin == true %>
 							<td>
 									<%= link_to "編集", edit_sound_path(sound.id), class: "btn btn-info" %>
-									<%= link_to "削除", sound_path(sound.id), method: :delete, class: "btn btn-danger"%>
 							</td>
 						<% end %>
 					<% end %>

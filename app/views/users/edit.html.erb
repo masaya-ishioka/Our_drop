@@ -1,15 +1,14 @@
-<div class="footer_top"></div>
 <div class="row">
 	<div class="col-md-1"></div>
 	<%= form_for(@user) do |f| %>
-	<div class="col-md-5">
+	<div class="col-md-5 col-sm-5 col-xs-12">
 			<%= attachment_image_tag @user, :image, :fill, 500, 500, fallback: "/no_image.jpg", class: "show_image"%>
 		<%= f.attachment_field :image %>
 	</div>
-	<div class="col-md-5">
+	<div class="col-md-5 col-sm-7 col-xs-12">
 		<div class="user_edit_box row">
 			<div class="col-md-1"></div>
-			<div class="col-md-10 margin_top">
+			<div class="col-md-10  col-sm-12 col-xs-12 margin_top">
 				<div class="form-group">
 					<label>紹介文</label>
 					<%= f.text_area :user_text, class: "form-control", placeholder: "200文字以内" %>

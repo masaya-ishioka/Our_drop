@@ -64,4 +64,41 @@ document.addEventListener("turbolinks:load",　function(){
 		$('.s_how_to6').fadeOut();
 	});
 
+	$('.fas1').click(function(){
+		$('.fas1').hide();
+		$('.fas2').show();
+		$('.menu').fadeIn();
+	});
+	$('.fas2').click(function(){
+		$('.fas2').hide();
+		$('.fas1').show();
+		$('.menu').fadeOut();
+	});
+
+	$('.like_click1').click(function(){
+		$('.like_sound').hide();
+		$('.like_user').show();
+	});
+
+	$('.like_click2').click(function(){
+		$('.like_user').hide();
+		$('.like_sound').show();
+	});
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
