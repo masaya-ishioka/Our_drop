@@ -361,6 +361,8 @@ small{
 .like_image{
 	height: 70%;
 	width: 100%;
+	object-fit: contain;
+	background: rgba(0,0,0,0.2);
 }
 
 .like_index_a a:nth-child(1){
@@ -383,6 +385,8 @@ small{
 .comment_image{
 	height: 120px;
 	width: 100%;
+	object-fit: contain;
+	background: rgba(0,0,0,0.2);
 }
 .comment_box{
 	height: 140px;
@@ -575,6 +579,39 @@ small{
 
 /*=============タブレット縦用=================*/
 @media screen and (max-width:770px) {
+header{
+	height: 70px;
+	width: 100%;
+	position: relative;
+	background-color: #000;
+	position: fixed;
+	top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+header span{
+	display: none;
+}
+.menu{
+	display: none;
+}
+header1{
+	height: 70px;
+	width: 100%;
+	position: relative;
+	background-color: #000;
+}
+
+.header_log{
+	height: 60px;
+	width: 75px;
+	margin: 5px 30px ;
+}
+
+
+
 .header1{
 	display: none;
 }
@@ -667,7 +704,10 @@ header{
 
 /*=============タブレット縦用=================*/
 @media screen and (max-width:460px) {
-	.header1{
+
+
+
+.header1{
 	display: none;
 }
 .header_log{
@@ -765,13 +805,7 @@ header{
 }
 .index_box{
 	width: 95%;
-	height: auto;
-	margin: 1% 1.5% 0 2%;
-}
-.like_image{
-	height: auto;
-	width: 100%;
-	max-width: 100%;
+	margin: 1% 1.5% 0% 2%;
 }
 }
 
