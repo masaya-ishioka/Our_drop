@@ -252,6 +252,8 @@ small{
 .how_to_image{
 	width: 95%;
 	height: 80%;
+	object-fit: contain;
+	background: rgba(0,0,0,0.2);
 }
 
 /*======トップページ用======*/
