@@ -39,7 +39,9 @@ gem "bootstrap-sass"
 gem "refile", require: "refile/rails", github: "manfe/refile"
 gem "refile-mini_magick"
 gem "jquery-rails"
-
+gem 'json'
+gem 'mysql2'
+gem 'listen', '>= 3.0.5', '< 3.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
